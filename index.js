@@ -62,9 +62,10 @@ Do the following:
    2. Use the received value to calculate the age in dog years (1 human year is equal to 7 dog years)
    3. Return the newly calculated age
 */
+dogYears(5);
 
-function dogYears(/*add your code here*/) {
-  /*add your code here*/
+function dogYears(age) {
+  return age * 7;
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -137,8 +138,32 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+let comChoice = Math.random();
+//user chooses 1, 2, or 3. 1 = Scissors, 2 = Paper, 3 = Rock.
+game(1, comChoice);
+
 function game(user, computer) {
-  /*add your code here*/
+  if (user === 1 && computer >= 0.66) {
+    //The tie section
+    //TIE where both chose scissors
+    // console.log(`------------------You both chose Scissors, It's a TIE!`);
+    return "it's a tie";
+  } else if (user === 2 && computer >= 0.34 && computer <= 0.65) {
+    //TIE where both chose paper
+    return "it's a tie";
+  } else if (user === 3 && computer <= 0.33) {
+    //TIE where both chose rock
+    return "it's a tie";
+  } else if (user === 1 && computer >= 0.34 && computer <= 0.65) {
+    // The winner section
+    return "you win!";
+  } else if (user === 2 && computer <= 0.33) {
+    return "you win!";
+  } else if (user === 3 && computer >= 0.66) {
+    return "you win!";
+  } else {
+    return "you lose!";
+  }
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
