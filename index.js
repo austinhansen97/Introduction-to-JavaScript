@@ -49,9 +49,11 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/) {
-  /*add your code here*/
+function multiply(a, b) {
+  return a * b;
 }
+
+multiply(3, 5);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -115,8 +117,6 @@ function hungryDog(weight, age) {
   }
 }
 
-console.log("----------------------------------", "task 3", hungryDog(15, 1));
-
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 // Rock, Paper, Scissors - Let's play against the computer!
@@ -138,33 +138,75 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-let comChoice = Math.random();
+let computerPlay = Math.ceil(Math.random() * 3);
+
+if (computerPlay === 1) {
+  computerPlay = "scissors";
+} else if (computerPlay === 2) {
+  computerPlay = "paper";
+} else if (computerPlay === 3) {
+  computerPlay = `rock`;
+}
+
 //user chooses 1, 2, or 3. 1 = Scissors, 2 = Paper, 3 = Rock.
-game(1, comChoice);
+game("scissors", computerPlay);
 
 function game(user, computer) {
-  if (user === 1 && computer >= 0.66) {
-    //The tie section
+  //The tie section ---------------
+  if (user === computer) {
     //TIE where both chose scissors
     // console.log(`------------------You both chose Scissors, It's a TIE!`);
+    console.log("it's a tie", `user put ${user} and computer put ${computer}`);
     return "it's a tie";
-  } else if (user === 2 && computer >= 0.34 && computer <= 0.65) {
-    //TIE where both chose paper
-    return "it's a tie";
-  } else if (user === 3 && computer <= 0.33) {
-    //TIE where both chose rock
-    return "it's a tie";
-  } else if (user === 1 && computer >= 0.34 && computer <= 0.65) {
-    // The winner section
+  }
+  // The winner section --------
+  //
+  //
+  else if (user === `scissors` && computer === "paper") {
     return "you win!";
-  } else if (user === 2 && computer <= 0.33) {
+  } else if (user === "paper" && computer === `rock`) {
     return "you win!";
-  } else if (user === 3 && computer >= 0.66) {
+  } else if (user === `rock` && computer === "scissors") {
     return "you win!";
-  } else {
+    // The you lose stuff --------
+    //
+    //
+  } else if (user === "scissors" && computer === `rock`) {
+    return "you lose!";
+  } else if (user === `rock` && computer === "paper") {
+    return "you lose!";
+  } else if (user === "paper" && computer === "scissors") {
     return "you lose!";
   }
 }
+
+// let comChoice = Math.random();
+// //user chooses 1, 2, or 3. 1 = Scissors, 2 = Paper, 3 = Rock.
+// game(1, comChoice);
+
+// function game(user, computer) {
+//   if (user === 1 && computer >= 0.66) {
+//     //The tie section
+//     //TIE where both chose scissors
+//     // console.log(`------------------You both chose Scissors, It's a TIE!`);
+//     return "it's a tie";
+//   } else if (user === 2 && computer >= 0.34 && computer <= 0.65) {
+//     //TIE where both chose paper
+//     return "it's a tie";
+//   } else if (user === 3 && computer <= 0.33) {
+//     //TIE where both chose rock
+//     return "it's a tie";
+//   } else if (user === 1 && computer >= 0.34 && computer <= 0.65) {
+//     // The winner section
+//     return "you win!";
+//   } else if (user === 2 && computer <= 0.33) {
+//     return "you win!";
+//   } else if (user === 3 && computer >= 0.66) {
+//     return "you win!";
+//   } else {
+//     return "you lose!";
+//   }
+// }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -177,9 +219,13 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/) {
-  /*add your code here*/
+let kilometers = 10;
+
+function miles(kilo) {
+  return kilo * 0.621371;
 }
+
+miles(kilometers);
 
 //Task 5b - Feet to CM
 /*
@@ -189,9 +235,11 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/) {
-  /*add your code here*/
+function feet(cm) {
+  return cm / 30.48;
 }
+
+feet(10);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -203,9 +251,13 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/) {
-  /*add your code here*/
+function annoyingSong(number) {
+  return `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${
+    number - 1
+  } bottles of soda on the wall`;
 }
+
+annoyingSong(10);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -222,9 +274,21 @@ Using the grade function below do the following:
    below should return 'you got an F'
 */
 
-function grade(/*Your Code here */) {
-  /*Your Code here */
+function grade(gradeReceived) {
+  if (gradeReceived >= 90) {
+    return `you got an A`;
+  } else if (gradeReceived >= 80 && gradeReceived <= 89) {
+    return `you got a B`;
+  } else if (gradeReceived >= 70 && gradeReceived <= 79) {
+    return `you got a C`;
+  } else if (gradeReceived >= 60 && gradeReceived <= 69) {
+    return `you got a D`;
+  } else {
+    return `you got an F`;
+  }
 }
+
+grade(100);
 
 //
 
